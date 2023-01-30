@@ -4,7 +4,7 @@
 
 ### 성능 요약
 
-메모리: 13864 KB, 시간: 116 ms
+메모리: 13856 KB, 시간: 112 ms
 
 ### 분류
 
@@ -12,16 +12,16 @@
 
 ### 문제 설명
 
-<p style="user-select: auto;">
+<p>
 	Hello World!를 출력하시오.</p>
 
 ### 입력 
 
- <p style="user-select: auto;">
+ <p>
 	없음</p>
 
 ### 출력 
 
- <p style="user-select: auto;">
+ <p>
 	Hello World!를 출력하시오.</p>
 
