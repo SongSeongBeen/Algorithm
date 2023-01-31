@@ -1,0 +1,1 @@
+import java.util.*;class Main{public static void main(String[]a){Scanner s=new Scanner(System.in);int i=0,b[]={1,1,2,2,2,8};for(;i<6;System.out.println(b[i++]-s.nextInt()));}}
