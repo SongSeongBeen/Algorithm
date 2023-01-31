@@ -1,9 +1,1 @@
-import java.util.Scanner;
-
-public class Main {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        System.out.print(n-543);
-    }
-}
+interface Main{static void main(String[]a){System.out.print(new java.util.Scanner(System.in).nextInt()-543);}}
