@@ -1,0 +1,1 @@
+import java.util.*;class Main{public static void main(String[] a){Scanner s=new Scanner(System.in);int A=s.nextInt(),B=s.nextInt(),C=s.nextInt();System.out.printf("%d%n%d%n%d%n%d",(A+B)%C,((A%C)+(B%C))%C,(A*B)%C,((A%C)*(B%C))%C);}}
