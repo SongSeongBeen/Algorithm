@@ -1,1 +1,1 @@
-import java.util.*;class Main {public static void main(String[] args) {	for(int s = new Scanner(System.in).nextInt(), i=1;i<10;i++) {System.out.println(s+" * "+i+" = "+(s*i));}}}
+import java.util.*;class Main{public static void main(String[] a){for(int s=new Scanner(System.in).nextInt(),i=1;i<10;i++){System.out.println(s+" * "+i+" = "+(s*i));}}}
