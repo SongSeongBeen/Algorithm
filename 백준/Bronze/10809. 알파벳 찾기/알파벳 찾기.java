@@ -13,7 +13,7 @@ class Main{
 		
 		for(int i = 0; i<str.length(); i++) {
 			char ch = str.charAt(i);
-			if(arr[ch - 'a'] == -1) arr[ch - 'a'] =i;			
+			if(arr[ch - 97] == -1) arr[ch - 97] =i;			
 		}
 		
 		for(int answer : arr) {
