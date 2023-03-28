@@ -8,23 +8,17 @@ class Solution {
     }
 
     private int findClosestIndex(int[] array, int n) {
-        for (int i = 0; i < array.length; i++) {
-            if (array[i] >= n) {
-                return i;
-            }
+        int index = 0;
+        while (index < array.length && array[index] < n) {
+            index++;
         }
-        return array.length - 1;
+        return index;
     }
 
     private int getClosestValue(int[] array, int n, int index) {
-        if (index == 0) {
-            return array[index];
+        if (index == 0 || index == array.length) {
+            return array[Math.max(index - 1, 0)];
         }
-        
-        if (index == array.length) {
-            return array[array.length - 1];
-        }
-        
         return n - array[index - 1] <= array[index] - n ? array[index - 1] : array[index];
     }
 }
