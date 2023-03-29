@@ -7,7 +7,7 @@ class Solution {
         return n.divide(m).intValue();
     }
     
-    private static BigInteger calculateFactorial(int n) {
+    private BigInteger calculateFactorial(int n) {
         BigInteger factorial = BigInteger.ONE;
         for (int i = 2; i <= n; i++) {
             factorial = factorial.multiply(BigInteger.valueOf(i));
