@@ -4,7 +4,7 @@ class Solution {
         answer = Integer.toBinaryString(intBinaryNumber(bin1) + intBinaryNumber(bin2));
         return answer;
     }
-    
+    //2진수 변환 
     private int intBinaryNumber(String bin){
         return Integer.parseInt(bin, 2);
     }
