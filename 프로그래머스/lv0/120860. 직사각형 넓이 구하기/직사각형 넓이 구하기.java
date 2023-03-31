@@ -1,16 +1,9 @@
 import java.util.*;
 class Solution {
     public int solution(int[][] dots) {
-        int answer = 0;
-        int[] x = new int[dots.length];
-        int[] y = new int[dots.length];
-        for(int i =0; i<dots.length; i++){
-            x[i] = dots[i][0];
-            y[i] = dots[i][1];
-        }
-        Arrays.sort(x);
-        Arrays.sort(y);
-        answer = (x[0]-x[x.length-1])*(y[0]-y[y.length-1]);
-        return answer;
+          int x = Math.max(Math.abs(dots[0][0] - dots[1][0]),Math.abs(dots[0][0] - dots[2][0]));
+        int y = Math.max(Math.abs(dots[0][1] - dots[1][1]),Math.abs(dots[0][1] - dots[2][1]));
+        return x*y;
+
     }
 }
