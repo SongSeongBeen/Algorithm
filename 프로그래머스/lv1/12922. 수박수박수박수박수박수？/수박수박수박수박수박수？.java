@@ -1,14 +1,11 @@
 class Solution {
     public String solution(int n) {
         String answer = "";
-        int i = 0;
-        while(n>i){
-            answer += i%2==0 ? "수" : "박";
-            i++;
-        }
-            
-
-        
+        boolean f = true;
+        while(n-->0){
+            answer += f ? "수" : "박";
+            f = !f;
+        } 
         return answer;
     }
 }
