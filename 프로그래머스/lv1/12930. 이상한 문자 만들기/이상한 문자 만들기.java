@@ -5,14 +5,8 @@ class Solution {
         int index = 0;
         
         for (char c : chars) {
-            if (Character.isWhitespace(c)) {
-                answer.append(c);
-                index = 0;
-            } else {
-                char convertChar = (index % 2 == 0) ? Character.toUpperCase(c) : Character.toLowerCase(c);
-                answer.append(convertChar);
-                index++;
-            }
+            index = Character.isWhitespace(c) ? 0 : index + 1;
+            answer.append(Character.isWhitespace(c) ? c : (index % 2 == 1) ? Character.toUpperCase(c) : Character.toLowerCase(c));
         }
         
         return answer.toString();
