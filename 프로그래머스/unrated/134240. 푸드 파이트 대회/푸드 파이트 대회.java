@@ -1,19 +1,13 @@
-import java.util.Arrays;
-import java.util.stream.Collectors;
-
 class Solution {
     public String solution(int[] food) {
-        StringBuilder num = new StringBuilder();
+        String answer = "0";
 
-        for (int i = 0; i < food.length; i++) {
-            int half = food[i] / 2;
-            
-            String repeated = String.valueOf(i).repeat(half);
-
-            num.append(repeated);
-
+        for (int i = food.length - 1; i > 0; i--) {
+            for (int j = 0; j < food[i] / 2; j++) {
+                answer = i + answer + i; 
+            }
         }
 
-        return num.toString() + "0" + num.reverse().toString();
+        return answer;
     }
 }
