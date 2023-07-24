@@ -1,7 +1,7 @@
-import java.util.Arrays;
+import java.util.stream.IntStream;
 
 class Solution {
-    public int solution(int[] num_list, int n) {
-        return Arrays.stream(num_list).anyMatch(i -> i == n) ?  1 : 0;
+    public int solution(int[] numList, int n) {
+        return IntStream.of(numList).anyMatch(num -> num == n) ? 1 : 0;
     }
 }
