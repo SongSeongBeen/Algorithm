@@ -1,9 +1,8 @@
 class Solution {
     public int[] solution(int n, int k) {
         int[] answer = new int[n/k];
-        int index = 0;
-        for(int i = k; i <= n; i+=k){
-            answer[index++] = i;
+        for(int i = 1; i <= answer.length; i++){
+            answer[i -1] = k*i;
         }
         return answer;
     }
