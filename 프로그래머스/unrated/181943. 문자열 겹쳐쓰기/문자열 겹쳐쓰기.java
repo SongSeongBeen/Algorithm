@@ -1,9 +1,5 @@
 class Solution {
     public String solution(String my_string, String overwrite_string, int s) {
-        StringBuilder sb = new StringBuilder(my_string);
-        for (int i = 0; i < overwrite_string.length() && s + i < sb.length(); i++) {
-            sb.setCharAt(s + i, overwrite_string.charAt(i));
-        }
-        return sb.toString();
+        return my_string.substring(0,s) + overwrite_string + my_string.substring(overwrite_string.length()+s);
     }
 }
