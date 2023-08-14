@@ -2,14 +2,12 @@ import java.util.Arrays;
 
 class Solution {
     public int[] solution(int[] arr, int[][] queries) {
-        int[] answer = Arrays.copyOf(arr, arr.length); 
+        int[] answer = Arrays.copyOf(arr, arr.length);
 
-        for(int i = 0; i < queries.length; i++){
-            int start = queries[i][0];
-            int end = queries[i][1];   
+        for(int i=0; i<queries.length; i++){
 
-            for(int j = start; j <= end; j++){
-                answer[j] += 1; 
+            for(int j=queries[i][0]; j<=queries[i][1]; j++){
+                answer[j]++;
             }
         }
 
