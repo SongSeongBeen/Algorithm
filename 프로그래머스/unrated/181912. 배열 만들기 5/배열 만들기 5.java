@@ -1,26 +1,20 @@
-import java.util.*;
+import java.util.List;
+import java.util.ArrayList;
 
 class Solution {
     public int[] solution(String[] intStrs, int k, int s, int l) {
         List<Integer> resultList = new ArrayList<>();
 
         for (String str : intStrs) {
-            if (s + l <= str.length()) { 
-                int value = 0;
-                boolean validNumber = true;
-
-                for (int i = s; i < s + l; i++) {
-                    char c = str.charAt(i);
-                    if (Character.isDigit(c)) {
-                        value = value * 10 + (c - '0');
-                    } else {
-                        validNumber = false;
-                        break;
+            if (s + l <= str.length()) { // 서브스트링 추출이 가능한지 검사
+                try {
+                    String sub = str.substring(s, s + l);
+                    int value = Integer.parseInt(sub);
+                    if (value > k) {
+                        resultList.add(value);
                     }
-                }
-
-                if (validNumber && value > k) {
-                    resultList.add(value);
+                } catch (NumberFormatException e) {
+                    // 변환 불가능한 서브스트링은 무시
                 }
             }
         }
