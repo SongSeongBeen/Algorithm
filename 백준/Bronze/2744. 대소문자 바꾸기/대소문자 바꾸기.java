@@ -1,12 +1,18 @@
 import java.util.*;
-public class Main{
+
+class Main{
     public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
         String str = sc.next();
-        for(int i =0; i<str.length(); i++){
-           char ch = str.charAt(i);
-           System.out.print('A' <= ch && ch <= 'Z' ? (char)('a'+ ch - 'A') : (char)('A'+ ch - 'a')); 
+        StringBuilder sb = new StringBuilder();
+        for(char chr : str.toCharArray()){
+            if(Character.isUpperCase(chr)){
+                sb.append(Character.toLowerCase(chr));
+            }
+            else if(Character.isLowerCase(chr)){
+                sb.append(Character.toUpperCase(chr));
+            }
         }
-        
+        System.out.print(sb.toString());
     }
 }
