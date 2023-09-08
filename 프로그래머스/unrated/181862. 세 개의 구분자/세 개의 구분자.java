@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 class Solution {
     public String[] solution(String myStr) {        
-        String[] answer = myStr.split("a|b|c");
+        String[] answer = myStr.split("[abc]+");
         ArrayList<String> list = new ArrayList<>();
 
         for (String s : answer) {
