@@ -1,22 +1,36 @@
-import java.util.*;
-import java.util.stream.*;
-
 class Solution {
     public int[] solution(int n, int[] slicer, int[] num_list) {
-        List<Integer> tempList = new ArrayList<>();
+        int start, end, step;
 
         switch (n) {
-            case 1 -> tempList = IntStream.rangeClosed(0, slicer[1]).mapToObj(i -> num_list[i]).collect(Collectors.toList());
-            case 2 -> tempList = IntStream.rangeClosed(slicer[0], num_list.length - 1).mapToObj(i -> num_list[i]).collect(Collectors.toList());
-            case 3 -> tempList = IntStream.rangeClosed(slicer[0], slicer[1]).mapToObj(i -> num_list[i]).collect(Collectors.toList());
-            case 4 -> {
-                for(int i = slicer[0]; i <= slicer[1]; i += slicer[2]) {
-                    tempList.add(num_list[i]);
-                }
+            case 1 -> {
+                start = 0;
+                end = slicer[1];
+                step = 1;
             }
-            default -> throw new IllegalArgumentException("뭐야뭐야");
+            case 2 -> {
+                start = slicer[0];
+                end = num_list.length - 1;
+                step = 1;
+            }
+            case 3 -> {
+                start = slicer[0];
+                end = slicer[1];
+                step = 1;
+            }
+            case 4 -> {
+                start = slicer[0];
+                end = slicer[1];
+                step = slicer[2];
+            }
+            default -> throw new IllegalArgumentException("모야모야");
+        }
+        
+        int[] answer = new int[(end - start + step) / step];
+        for (int i = start, j = 0; i <= end; i += step) {
+            answer[j++] = num_list[i];
         }
 
-        return tempList.stream().mapToInt(i -> i).toArray();
+        return answer;
     }
 }
