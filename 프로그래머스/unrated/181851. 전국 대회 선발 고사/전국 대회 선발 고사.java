@@ -1,24 +1,14 @@
-import java.util.Arrays;
-import java.util.Comparator;
+import java.util.PriorityQueue;
 
 class Solution {
     public int solution(int[] rank, boolean[] attendance) {
-        Integer[] indices = new Integer[rank.length];
-        for (int i = 0; i < rank.length; i++) {
-            indices[i] = i;
+
+        PriorityQueue<Integer> que = new PriorityQueue<>((a, b) -> rank[a] - rank[b]);
+        for (int i = 0; i < attendance.length; i++) {
+            if (attendance[i])
+                que.add(i);
         }
 
-        Arrays.sort(indices, Comparator.comparingInt(i -> rank[i]));
-
-        int[] pick = new int[3];
-        int index = 0;
-        for (int i : indices) {
-            if (attendance[i] && index < 3) {
-                pick[index++] = i;
-            }
-        }
-
-        int answer = 10000 * pick[0] + 100 * pick[1] + pick[2];
-        return answer;
+        return que.poll() * 10000 + que.poll() * 100 + que.poll();
     }
 }
