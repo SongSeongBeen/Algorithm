@@ -1,30 +1,27 @@
-import java.util.*;
+import java.util.ArrayList;
 
 class Solution {
     public int[] solution(int l, int r) {
-        List<Integer> list = new ArrayList<>();
+        ArrayList<Integer> list = new ArrayList<>();
 
-        for (int i = l; i <= r; i++) {
-            if (isValid(i)) {
-                list.add(i);
+        for (int i = 1; i < 64; i++) {
+            int num = 0;
+            int temp = i;
+            int base = 1;
+
+            while (temp > 0) {
+                if ((temp & 1) == 1) {
+                    num += 5 * base;
+                }
+                temp >>= 1;
+                base *= 10;
+            }
+
+            if (l <= num && num <= r) {
+                list.add(num);
             }
         }
 
-        if (list.isEmpty()) {
-            return new int[]{-1};
-        }
-
-        return list.stream().mapToInt(i -> i).toArray();
-    }
-
-    private boolean isValid(int number) {
-        while (number > 0) {
-            int digit = number % 10;
-            if (digit != 0 && digit != 5) {
-                return false;
-            }
-            number /= 10;
-        }
-        return true;
+        return list.isEmpty() ? new int[] { -1 } : list.stream().mapToInt(i -> i).toArray();
     }
 }
