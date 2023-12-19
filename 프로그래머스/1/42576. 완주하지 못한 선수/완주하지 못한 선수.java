@@ -2,6 +2,7 @@ import java.util.HashMap;
 
 class Solution {
     public String solution(String[] participant, String[] completion) {
+        String answer = "";
         HashMap<String, Integer> hashMap = new HashMap<>();
 
         // 참가자 명단에 각 참가자의 등장 횟수를 저장
@@ -16,8 +17,8 @@ class Solution {
                 hashMap.remove(player);
             }
         }
-
+        answer = hashMap.keySet().iterator().next();
         // 누락된 참가자 반환
-        return hashMap.keySet().iterator().next();
+        return answer;
     }
 }
