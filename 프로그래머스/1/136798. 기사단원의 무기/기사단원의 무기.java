@@ -1,23 +1,20 @@
 class Solution {
     public int solution(int number, int limit, int power) {
+        int[] divisorCounts = calculateDivisorCounts(number);
         int answer = 0;
-        
         for (int i = 1; i <= number; i++) {
-            int divisorCount = divisorCnt(i);
-            answer += (divisorCount <= limit) ? divisorCount : power;
+            answer += (divisorCounts[i] > limit) ? power :  divisorCounts[i];
         }
-
         return answer;
     }
-    
-    private static int divisorCnt(int number) {
-        int count = 0;
-        int sqrtN = (int)Math.sqrt(number);
-        for (int i = 1; i <= sqrtN; i++) {
-            if (number % i == 0) {
-                count += (number / i == i) ? 1 : 2; 
+
+    private int[] calculateDivisorCounts(int number) {
+        int[] divisorCounts = new int[number + 1];
+        for (int i = 1; i <= number; i++) {
+            for (int j = 1; i * j <= number; j++) {
+                divisorCounts[i * j]++;
             }
         }
-        return count;
+        return divisorCounts;
     }
 }
