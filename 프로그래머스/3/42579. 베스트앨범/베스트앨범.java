@@ -2,7 +2,7 @@ import java.util.*;
 
 class Solution {
     public int[] solution(String[] genres, int[] plays) {
-        // 장르별 총 재생 횟수를 저장할 HashMap
+        // 장르별 총 재생 횟수를 저장할 HashMap 
         Map<String, Integer> genrePlayCount = new HashMap<>();
          // 각 장르별 노래를 우선순위 큐로 관리하기 위한 HashMap
         Map<String, PriorityQueue<Song>> genreSongs = new HashMap<>();
@@ -11,10 +11,7 @@ class Solution {
             genrePlayCount.merge(genres[i], plays[i], Integer::sum);
             genreSongs.computeIfAbsent(genres[i], k -> new PriorityQueue<>(
                 (s1, s2) -> {
-                    if (s1.playsCount == s2.playsCount) {
-                        return Integer.compare(s1.id, s2.id); // 재생 횟수가 같을 때는 고유 번호가 낮은 노래 우선
-                    }
-                    return Integer.compare(s2.playsCount, s1.playsCount); // 재생 횟수가 많은 노래 우선
+                    return (s1.playsCount == s2.playsCount) ? Integer.compare(s1.id, s2.id) : Integer.compare(s2.playsCount, s1.playsCount); // 재생 횟수가 같을 때는 고유 번호가 낮은 노래 우선
                 }
             )).add(new Song(i, plays[i]));
         }
