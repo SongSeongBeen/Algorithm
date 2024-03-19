@@ -4,20 +4,22 @@ class Solution {
     HashSet<Integer> numberSet = new HashSet<>();
     
     public int solution(String numbers) {
-        permutation("", numbers);
+        permutation(new StringBuilder(), numbers);
         return numberSet.size();
     }
     
-    private void permutation(String prefix, String str) {
+    private void permutation(StringBuilder prefix, String str) {
         int n = str.length();
-        if (!prefix.equals("")) {
-            int num = Integer.parseInt(prefix);
+        if (prefix.length() != 0) {
+            int num = Integer.parseInt(prefix.toString());
             if (isPrime(num)) {
                 numberSet.add(num);
             }
         }
         for (int i = 0; i < n; i++) {
-            permutation(prefix + str.charAt(i), str.substring(0, i) + str.substring(i+1, n));
+            prefix.append(str.charAt(i));
+            permutation(prefix, str.substring(0, i) + str.substring(i+1, n));
+            prefix.deleteCharAt(prefix.length() - 1); // 마지막 문자 제거
         }
     }
 
